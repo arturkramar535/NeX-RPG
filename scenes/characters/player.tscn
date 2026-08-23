@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://bmx6ynphorvcb"]
 
 [ext_resource type="Script" uid="uid://2w0sq424sedw" path="res://scripts/player/player_controller.gd" id="1_rp718"]
+[ext_resource type="Script" uid="uid://cbm35l57kfnh5" path="res://scripts/player/third_person_camera.gd" id="2_yewv4"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_4lv1d"]
 radius = 0.4
@@ -19,3 +20,15 @@ shape = SubResource("CapsuleShape3D_4lv1d")
 
 [node name="Visual" type="MeshInstance3D" parent="." unique_id=934377491]
 mesh = SubResource("CapsuleMesh_4lv1d")
+
+[node name="CameraPivot" type="Node3D" parent="." unique_id=134348542]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
+script = ExtResource("2_yewv4")
+
+[node name="SpringArm3D" type="SpringArm3D" parent="CameraPivot" unique_id=273401511]
+transform = Transform3D(1, 0, 0, 0, 0.9848077, 0.17364818, 0, -0.17364818, 0.9848077, 0, 0, 0)
+spring_length = 4.0
+
+[node name="Camera3D" type="Camera3D" parent="CameraPivot/SpringArm3D" unique_id=2072762560]
+current = true
+fov = 70.0
