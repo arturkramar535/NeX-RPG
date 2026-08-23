@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://bmx6ynphorvcb"]
+
+[ext_resource type="Script" uid="uid://2w0sq424sedw" path="res://scripts/player/player_controller.gd" id="1_rp718"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_4lv1d"]
+radius = 0.4
+height = 1.8
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_4lv1d"]
+radius = 0.4
+height = 1.8
+
+[node name="Player" type="CharacterBody3D" unique_id=2102119853]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+script = ExtResource("1_rp718")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=598929102]
+shape = SubResource("CapsuleShape3D_4lv1d")
+
+[node name="Visual" type="MeshInstance3D" parent="." unique_id=934377491]
+mesh = SubResource("CapsuleMesh_4lv1d")

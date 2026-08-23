@@ -1,7 +1,15 @@
 [gd_scene format=3 uid="uid://dd7k33nkv5qvj"]
 
+[ext_resource type="PackedScene" uid="uid://bmx6ynphorvcb" path="res://scenes/characters/player.tscn" id="1_5qbjp"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qjesc"]
+
 [sub_resource type="PlaneMesh" id="PlaneMesh_4lv1d"]
+material = SubResource("StandardMaterial3D_qjesc")
 size = Vector2(20, 20)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_4lv1d"]
+size = Vector3(20, 0.2, 20)
 
 [node name="World" type="Node3D" unique_id=310213300]
 
@@ -13,9 +21,11 @@ size = Vector2(20, 20)
 mesh = SubResource("PlaneMesh_4lv1d")
 
 [node name="GameCamera" type="Camera3D" parent="." unique_id=2026590949]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10, 10)
+transform = Transform3D(1, 0, 0, 0, 0.70710677, 0.70710677, 0, -0.70710677, 0.70710677, 0, 10, 10)
 keep_aspect = 0
 current = true
+
+[node name="Player" parent="." unique_id=2102119853 instance=ExtResource("1_5qbjp")]
 
 [node name="UI" type="CanvasLayer" parent="." unique_id=790897373]
 
@@ -24,3 +34,9 @@ offset_right = 40.0
 offset_bottom = 23.0
 text = "NeX-RPG
 Prototype"
+
+[node name="GroundCollision" type="StaticBody3D" parent="." unique_id=1357076976]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="GroundCollision" unique_id=647494975]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1, 0)
+shape = SubResource("BoxShape3D_4lv1d")
