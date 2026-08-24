@@ -1,0 +1,8 @@
+[gd_resource type="Resource" format=3 uid="uid://t75ihsfp1j7f"]
+
+[ext_resource type="Script" uid="uid://cs7b8e14pgx4t" path="res://scripts/characters/appearance_data.gd" id="1_8biw2"]
+
+[resource]
+script = ExtResource("1_8biw2")
+eye_color = "blue"
+hair_color = "brown"

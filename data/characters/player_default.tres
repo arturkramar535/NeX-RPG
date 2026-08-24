@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="CharacterData" format=3 uid="uid://dwmyg3nyswluq"]
+
+[ext_resource type="Script" uid="uid://bgwwm7icb8nwq" path="res://scripts/characters/character_data.gd" id="1_37did"]
+[ext_resource type="Resource" uid="uid://t75ihsfp1j7f" path="res://data/characters/player_default_appearance.tres" id="1_l1an8"]
+
+[resource]
+script = ExtResource("1_37did")
+character_name = "Player"
+gender = "Male"
+appearance = ExtResource("1_l1an8")

@@ -1,7 +1,9 @@
 [gd_scene format=3 uid="uid://bmx6ynphorvcb"]
 
 [ext_resource type="Script" uid="uid://2w0sq424sedw" path="res://scripts/player/player_controller.gd" id="1_rp718"]
+[ext_resource type="Resource" uid="uid://dwmyg3nyswluq" path="res://data/characters/player_default.tres" id="2_76oj4"]
 [ext_resource type="Script" uid="uid://cbm35l57kfnh5" path="res://scripts/player/third_person_camera.gd" id="2_yewv4"]
+[ext_resource type="Script" uid="uid://bw53skmpfnyeg" path="res://scripts/characters/character_visual.gd" id="4_dyp2m"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_4lv1d"]
 radius = 0.4
@@ -14,6 +16,7 @@ height = 1.8
 [node name="Player" type="CharacterBody3D" unique_id=2102119853]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 script = ExtResource("1_rp718")
+character_data = ExtResource("2_76oj4")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=598929102]
 shape = SubResource("CapsuleShape3D_4lv1d")
@@ -32,3 +35,6 @@ spring_length = 4.0
 [node name="Camera3D" type="Camera3D" parent="CameraPivot/SpringArm3D" unique_id=2072762560]
 current = true
 fov = 70.0
+
+[node name="CharacterVisual" type="Node3D" parent="." unique_id=1538480077]
+script = ExtResource("4_dyp2m")
