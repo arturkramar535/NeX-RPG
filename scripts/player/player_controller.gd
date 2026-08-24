@@ -8,6 +8,7 @@ extends CharacterBody3D
 
 @onready var camera_pivot: Node3D = $CameraPivot
 @onready var character_visual: CharacterVisual = $CharacterVisual
+@onready var animation_controller: CharacterAnimationController = $AnimationController
 func _ready() -> void:
 	if character_data != null:
 		print("Character loaded: " + character_data.character_name)
@@ -41,3 +42,8 @@ func _physics_process(_delta: float) -> void:
 		velocity.y = 0.0
 
 	move_and_slide()
+
+	if direction.length() > 0.1:
+		animation_controller.set_state(CharacterAnimationController.AnimationState.WALK)
+	else:
+		animation_controller.set_state(CharacterAnimationController.AnimationState.IDLE)

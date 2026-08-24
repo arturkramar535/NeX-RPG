@@ -4,6 +4,8 @@
 [ext_resource type="Resource" uid="uid://dwmyg3nyswluq" path="res://data/characters/player_default.tres" id="2_76oj4"]
 [ext_resource type="Script" uid="uid://cbm35l57kfnh5" path="res://scripts/player/third_person_camera.gd" id="2_yewv4"]
 [ext_resource type="Script" uid="uid://bw53skmpfnyeg" path="res://scripts/characters/character_visual.gd" id="4_dyp2m"]
+[ext_resource type="PackedScene" uid="uid://54ri2m56s6no" path="res://assets/characters/player/player_test.glb" id="5_atpat"]
+[ext_resource type="Script" uid="uid://c3fgnufs27pao" path="res://scripts/characters/animation_controller.gd" id="6_kqtwu"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_4lv1d"]
 radius = 0.4
@@ -38,3 +40,12 @@ fov = 70.0
 
 [node name="CharacterVisual" type="Node3D" parent="." unique_id=1538480077]
 script = ExtResource("4_dyp2m")
+
+[node name="Model" type="Node3D" parent="CharacterVisual" unique_id=208859059]
+
+[node name="player_test" parent="CharacterVisual/Model" unique_id=2121567693 instance=ExtResource("5_atpat")]
+
+[node name="AnimationController" type="Node" parent="." unique_id=1122713047]
+script = ExtResource("6_kqtwu")
+
+[editable path="CharacterVisual/Model/player_test"]
