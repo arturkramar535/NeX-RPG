@@ -4,4 +4,3 @@ extends Node
 
 func _ready() -> void:
 	print("NeX-RPG GameManager initialized.")
-	GameState.start_new_game()
