@@ -3,17 +3,16 @@
 [ext_resource type="Script" uid="uid://2w0sq424sedw" path="res://scripts/player/player_controller.gd" id="1_rp718"]
 [ext_resource type="Resource" uid="uid://dwmyg3nyswluq" path="res://data/characters/player_default.tres" id="2_76oj4"]
 [ext_resource type="Script" uid="uid://cbm35l57kfnh5" path="res://scripts/player/third_person_camera.gd" id="2_yewv4"]
+[ext_resource type="PackedScene" uid="uid://bc171k6s1ceod" path="res://assets/characters/player/Girl_model/scene.gltf" id="4_atpat"]
 [ext_resource type="Script" uid="uid://bw53skmpfnyeg" path="res://scripts/characters/character_visual.gd" id="4_dyp2m"]
-[ext_resource type="PackedScene" uid="uid://54ri2m56s6no" path="res://assets/characters/player/player_test.glb" id="5_atpat"]
 [ext_resource type="Script" uid="uid://c3fgnufs27pao" path="res://scripts/characters/animation_controller.gd" id="6_kqtwu"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_4lv1d"]
 radius = 0.4
 height = 1.8
 
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_4lv1d"]
-radius = 0.4
-height = 1.8
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kqtwu"]
+diffuse_mode = 3
 
 [node name="Player" type="CharacterBody3D" unique_id=2102119853]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
@@ -23,8 +22,12 @@ character_data = ExtResource("2_76oj4")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=598929102]
 shape = SubResource("CapsuleShape3D_4lv1d")
 
-[node name="Visual" type="MeshInstance3D" parent="." unique_id=934377491]
-mesh = SubResource("CapsuleMesh_4lv1d")
+[node name="Sketchfab_Scene" parent="." unique_id=1270911489 instance=ExtResource("4_atpat")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
+script = ExtResource("4_dyp2m")
+
+[node name="Object_4" parent="Sketchfab_Scene/Sketchfab_model/8_obj_cleaner_gles/Object_2" parent_id_path=PackedInt32Array(1270911489, 811895584) index="1" unique_id=1959156323]
+surface_material_override/0 = SubResource("StandardMaterial3D_kqtwu")
 
 [node name="CameraPivot" type="Node3D" parent="." unique_id=134348542]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
@@ -38,14 +41,7 @@ spring_length = 4.0
 current = true
 fov = 70.0
 
-[node name="CharacterVisual" type="Node3D" parent="." unique_id=1538480077]
-script = ExtResource("4_dyp2m")
-
-[node name="Model" type="Node3D" parent="CharacterVisual" unique_id=208859059]
-
-[node name="player_test" parent="CharacterVisual/Model" unique_id=2121567693 instance=ExtResource("5_atpat")]
-
 [node name="AnimationController" type="Node" parent="." unique_id=1122713047]
 script = ExtResource("6_kqtwu")
 
-[editable path="CharacterVisual/Model/player_test"]
+[editable path="Sketchfab_Scene"]

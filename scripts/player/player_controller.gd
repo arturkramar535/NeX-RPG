@@ -7,7 +7,7 @@ extends CharacterBody3D
 @export var character_data: CharacterData
 
 @onready var camera_pivot: Node3D = $CameraPivot
-@onready var character_visual: CharacterVisual = $CharacterVisual
+@onready var character_visual: CharacterVisual = $Sketchfab_Scene
 @onready var animation_controller: CharacterAnimationController = $AnimationController
 func _ready() -> void:
 	if character_data != null:

@@ -1,6 +1,6 @@
 extends Control
 
-
+@onready var hover_sound_player: AudioStreamPlayer = $HoverSoundPlayer
 @onready var name_input: LineEdit = $NameInput
 @onready var race_option: OptionButton = $RaceOption
 @onready var gender_option: OptionButton = $GenderOption
@@ -24,6 +24,9 @@ func _ready() -> void:
 	start_button.pressed.connect(_on_start_pressed)
 
 	print("Start button signal connected.")
+	
+	for child in _find_interactive_nodes(self):
+		child.mouse_entered.connect(_on_element_hovered)
 
 
 func _on_start_pressed() -> void:
@@ -59,3 +62,15 @@ func _on_start_pressed() -> void:
 	print("Loading World...")
 
 	SceneManager.change_scene("res://scenes/world/World.tscn")
+
+func _on_element_hovered() -> void:
+	if hover_sound_player and not hover_sound_player.playing:
+		hover_sound_player.play()
+
+func _find_interactive_nodes(node: Node) -> Array:
+	var elements = []
+	if node is Button or node is OptionButton:
+		elements.append(node)
+	for child in node.get_children():
+		elements.append_array(_find_interactive_nodes(child))
+	return elements

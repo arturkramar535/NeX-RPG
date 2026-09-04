@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://bcb0agehu5o5y"]
 
 [ext_resource type="Script" uid="uid://dpumrl0has07n" path="res://scripts/ui/main_menu.gd" id="1_vjtqc"]
+[ext_resource type="AudioStream" uid="uid://y2c4cj8ticnb" path="res://scenes/ui/Select.ogg" id="2_6jbdy"]
 
 [node name="MainMenu" type="Control" unique_id=329167157]
 layout_mode = 3
@@ -46,3 +47,7 @@ text = "Настройки"
 [node name="ExitButton" type="Button" parent="MenuContainer" unique_id=1631821359]
 layout_mode = 2
 text = "Выход"
+
+[node name="HoverSoundPlayer" type="AudioStreamPlayer" parent="." unique_id=370923269]
+stream = ExtResource("2_6jbdy")
+volume_db = -20.07

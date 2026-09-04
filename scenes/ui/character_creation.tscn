@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://cfv0kjrd8yr51"]
 
 [ext_resource type="Script" uid="uid://b6u0j2xbkjbcv" path="res://scripts/ui/character_creation.gd" id="1_r0iii"]
+[ext_resource type="AudioStream" uid="uid://y2c4cj8ticnb" path="res://scenes/ui/Select.ogg" id="2_locca"]
 
 [node name="CharacterCreation" type="Control" unique_id=1457639908]
 layout_mode = 3
@@ -32,16 +33,16 @@ text = "Создание персонажа"
 layout_mode = 0
 offset_left = 332.0
 offset_top = 62.0
-offset_right = 400.5
+offset_right = 446.0
 offset_bottom = 93.0
 placeholder_text = "Введите имя"
 
 [node name="RaceLabel" type="Label" parent="." unique_id=386064428]
 layout_mode = 0
-offset_left = 328.0
-offset_top = 111.0
-offset_right = 368.0
-offset_bottom = 134.0
+offset_left = 144.0
+offset_top = 116.0
+offset_right = 184.0
+offset_bottom = 139.0
 text = "Раса"
 
 [node name="RaceOption" type="OptionButton" parent="." unique_id=105404369]
@@ -56,10 +57,10 @@ popup/item_0/id = 0
 
 [node name="GenderLabel" type="Label" parent="." unique_id=111082716]
 layout_mode = 0
-offset_left = 145.0
-offset_top = 111.0
-offset_right = 185.0
-offset_bottom = 134.0
+offset_left = 326.0
+offset_top = 115.0
+offset_right = 366.0
+offset_bottom = 138.0
 text = "Пол"
 
 [node name="GenderOption" type="OptionButton" parent="." unique_id=1790022352]
@@ -79,3 +80,7 @@ offset_top = 234.0
 offset_right = 315.0
 offset_bottom = 265.0
 text = "Начать игру"
+
+[node name="HoverSoundPlayer" type="AudioStreamPlayer" parent="." unique_id=368407]
+stream = ExtResource("2_locca")
+volume_db = -20.07
